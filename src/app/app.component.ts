@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'antd-offical-theme';
+  isCollapsed = false;
+  name = 'yc';
+
+  changeTheme(){
+    // document.head.get
+  }
 }
