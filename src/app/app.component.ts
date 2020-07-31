@@ -7,9 +7,37 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isCollapsed = false;
-  name = 'yc';
+  theme = 'compact';
+  layoutTheme = 'light';
 
-  changeTheme(){
-    // document.head.get
+  constructor() {
+    this.initTheme();
   }
+
+  initTheme() {
+    let theme = localStorage.getItem('theme');
+    if (!theme) {
+      theme = this.theme;
+    }
+    this.setTheme(theme);
+  }
+
+  setTheme(theme: string) {
+    const themeLink = document.getElementById('theme');
+    if (themeLink) {
+      const themeFile = `assets/themes/style.${theme}.css`;
+      themeLink.setAttribute('href', themeFile);
+    } else {
+      const style = document.createElement('link');
+      style.type = 'text/css';
+      style.rel = 'stylesheet';
+      style.id = 'theme';
+      style.href = `assets/themes/style.${theme}.css`;
+      document.body.append(style);
+    }
+    localStorage.setItem(`theme`, theme);
+    this.theme = theme;
+    this.layoutTheme = theme === 'dark' ? 'dark' : 'light';
+  }
+
 }

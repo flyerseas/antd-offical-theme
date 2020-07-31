@@ -1,5 +1,11 @@
 # AntdOfficalTheme
 
+当前实现的主题是官方提供的2个主题：theme-compact.less 和 theme-dark.less，然后通过编译后直接在index.html中切换link的引入文件实现，当前的样式优先级：theme > style.less > component的less文件，本囧暂时还没找到新的解决办法，有大佬会的还请指教。
+
+## 编译主题
+node theme.js
+
+## Environment
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
